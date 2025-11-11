@@ -1,0 +1,10 @@
+------------------------------------------------------------------------------
+Name="Employee Service"
+Port=8001
+Endpoint=[GET]    "http://localhost:8001/employees"
+         [GET]    "http://localhost:8001/employees/{id}"
+         [POST]   "http://localhost:8001/employees"
+         [PUT]    "http://localhost:8001/employees/{id}"
+         [DELETE] "http://localhsot:8001/employees/{id}"
+Description="Provides employee data in JSON format"
+------------------------------------------------------------------------------

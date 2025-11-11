@@ -1,0 +1,6 @@
+------------------------------------------------------------------------------
+Name="Healthcare Service"
+Port=8082
+WSDL Endpoint=[GET] "https://localhost:8082/patient-records?wsdl"
+Description="Provides faux Patient Records in XML format using a SOAP API."
+------------------------------------------------------------------------------

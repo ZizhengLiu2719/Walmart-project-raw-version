@@ -1,0 +1,10 @@
+------------------------------------------------------------------------------
+Name="Finance Service"
+Port=8085
+Endpoints=[GET]    "http://localhost:8085/finances"
+          [GET]    "http://localhost:8085/finances/{id}"
+          [POST]   "http://localhost:8085/finances"
+          [PUT]    "http://localhost:8085/finances/{id}"
+          [DELETE] "http://localhost:8085/finances/{id}"
+Description="Provides Finance data in CSV format"
+------------------------------------------------------------------------------

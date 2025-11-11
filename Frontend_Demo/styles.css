@@ -1,0 +1,102 @@
+:root {
+    --bg: #f8f9fa;
+    --primary: #0071ce;   /* Walmart blue */
+    --accent: #ffc220;    /* Walmart yellow */
+    --muted: #6c757d;
+    --dark: #212529;      /* dark text */
+    --card-bg: #ffffff;
+    --subtle: #0053a0;    /* darker blue for gradients */
+}
+
+/* App background */
+.stApp {
+    background-color: var(--bg);
+    color: var(--dark);
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div {
+    color: var(--dark) !important;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand {
+    font-weight: 700;
+    color: var(--primary) !important;
+    font-size: 20px;
+}
+
+/* Inputs */
+.search-bar .stTextInput > div > div > input {
+    height: 44px;
+    color: var(--dark);
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(15,15,15,0.06);
+    color: var(--dark);
+    transition: all 0.25s ease-in-out;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(15, 15, 15, 0.15);
+}
+
+/* Small muted text */
+.small-muted {
+    color: var(--muted) !important;
+    font-size: 12px;
+}
+
+/* Accent pill */
+.accent-pill {
+    background: linear-gradient(90deg, var(--accent), var(--subtle));
+    color: white !important;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+/* Service tiles */
+.tile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.tile {
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    background: var(--card-bg);
+    color: var(--dark);
+    transition: all 0.25s ease-in-out;
+}
+
+/* Hover effect for tiles */
+.tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #D67019; /* orange by default, can override */
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 999px;
+}

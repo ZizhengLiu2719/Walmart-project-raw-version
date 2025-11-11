@@ -1,0 +1,42 @@
+<WeatherAlerts>
+  <WeatherAlert>
+    <Event>Severe Thunderstorm Warning</Event>
+    <Effective>2025-08-20T20:30:00-05:00</Effective>
+    <Expires>2025-08-20T22:30:00-05:00</Expires>
+    <Area>Washington County, AR</Area>
+    <Summary>Severe thunderstorm is approaching the area.</Summary>
+  </WeatherAlert>
+
+  <WeatherAlert>
+    <Event>Flash Flood Warning</Event>
+    <Effective>2025-08-20T20:00:00-05:00</Effective>
+    <Expires>2025-08-20T23:00:00-05:00</Expires>
+    <Area>Benton County, AR</Area>
+    <Summary>Heavy rainfall may cause flash flooding in low-lying areas.</Summary>
+  </WeatherAlert>
+
+  <WeatherAlert>
+    <Event>Tornado Watch</Event>
+    <Effective>2025-08-20T17:00:00-05:00</Effective>
+    <Expires>2025-08-20T23:30:00-05:00</Expires>
+    <Area>Washington and Madison Counties, AR</Area>
+    <Summary>Conditions are favorable for tornado development.</Summary>
+  </WeatherAlert>
+
+  <WeatherAlert>
+    <Event>Excessive Heat Warning</Event>
+    <Effective>2025-08-20T12:00:00-05:00</Effective>
+    <Expires>2025-08-20T19:00:00-05:00</Expires>
+    <Area>Fort Smith, AR</Area>
+    <Summary>Heat index values up to 112°F expected.</Summary>
+  </WeatherAlert>
+
+  <WeatherAlert>
+    <Event>Severe Thunderstorm Warning</Event>
+    <Effective>2025-08-20T21:15:00-05:00</Effective>
+    <Expires>2025-08-20T22:15:00-05:00</Expires>
+    <Area>Fayetteville, AR</Area>
+    <Summary>Quarter-size hail and 60 mph wind gusts possible.</Summary>
+  </WeatherAlert>
+</WeatherAlerts>
+

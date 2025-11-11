@@ -1,0 +1,6 @@
+id,vehicleType,origin,destination,departureTime,arrivalTime,status,area
+1,TRUCK,Fayetteville Distribution Center,Bentonville DC,2025-08-20T20:45:00-05:00,2025-08-20T22:00:00-05:00,IN_TRANSIT,Washington County, AR
+2,VAN,Bentonville DC,Rogers Local Hub,2025-08-20T20:30:00-05:00,2025-08-20T22:30:00-05:00,IN_TRANSIT,Benton County, AR
+3,TRUCK,Fayetteville Distribution Center,Huntsville Drop Lot,2025-08-20T18:30:00-05:00,2025-08-20T23:00:00-05:00,PENDING,Washington and Madison Counties, AR
+4,PLANE,Fort Smith Regional Airport,Little Rock National Airport,2025-08-20T12:15:00-05:00,2025-08-20T19:00:00-05:00,SCHEDULED,Fort Smith, AR
+5,VAN,Rogers Local Hub,Customer Address - Springdale,2025-08-20T21:20:00-05:00,2025-08-20T22:15:00-05:00,DELIVERED,Fayetteville, AR

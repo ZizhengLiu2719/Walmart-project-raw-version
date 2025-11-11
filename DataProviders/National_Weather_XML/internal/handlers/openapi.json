@@ -1,0 +1,282 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "National Weather Service - Weather Alerts Provider",
+    "version": "0.0.1",
+    "description": "Simple provider that exposes weather alerts. The endpoint accepts and returns XML payloads matching the WeatherAlert struct."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/weather-alert": {
+      "get": {
+        "summary": "Get weather alerts (all or by index)",
+        "description": "If the `id` query parameter is omitted, returns the full list of alerts wrapped in `<WeatherAlerts>`.\nIf `id` is provided (0-based index), returns the single `<WeatherAlert>` at that index.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "0-based index into the internal alerts slice. If omitted the endpoint returns all alerts.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response (either a single WeatherAlert or a WeatherAlerts wrapper)",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/WeatherAlert"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WeatherAlerts"
+                    }
+                  ]
+                },
+                "examples": {
+                  "list": {
+                    "summary": "Example list of alerts",
+                    "value": "<WeatherAlerts>\n  <WeatherAlert>\n    <Event>Tornado Warning</Event>\n    <Effective>2025-09-12T13:00:00Z</Effective>\n    <Expires>2025-09-12T14:00:00Z</Expires>\n    <Area>SomeCounty</Area>\n    <Summary>Take shelter immediately.</Summary>\n  </WeatherAlert>\n  <WeatherAlert>\n    <Event>Flood Advisory</Event>\n    <Effective>2025-09-12T10:00:00Z</Effective>\n    <Expires>2025-09-12T16:00:00Z</Expires>\n    <Area>AnotherCounty</Area>\n    <Summary>Minor flooding expected.</Summary>\n  </WeatherAlert>\n</WeatherAlerts>\n"
+                  },
+                  "single": {
+                    "summary": "Example single alert",
+                    "value": "<WeatherAlert>\n  <Event>Tornado Warning</Event>\n  <Effective>2025-09-12T13:00:00Z</Effective>\n  <Expires>2025-09-12T14:00:00Z</Expires>\n  <Area>SomeCounty</Area>\n  <Summary>Take shelter immediately.</Summary>\n</WeatherAlert>\n"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request (invalid id or parsing error)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Error while parsing id. Please send only an integer"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new weather alert (XML payload)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherAlert"
+              },
+              "example": "<WeatherAlert>\n  <Event>Heat Advisory</Event>\n  <Effective>2025-09-12T12:00:00Z</Effective>\n  <Expires>2025-09-12T20:00:00Z</Expires>\n  <Area>CountyName</Area>\n  <Summary>High temperatures expected.</Summary>\n</WeatherAlert>\n"
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created - returns the created WeatherAlert",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherAlert"
+                },
+                "example": "<WeatherAlert>\n  <Event>Heat Advisory</Event>\n  <Effective>2025-09-12T12:00:00Z</Effective>\n  <Expires>2025-09-12T20:00:00Z</Expires>\n  <Area>CountyName</Area>\n  <Summary>High temperatures expected.</Summary>\n</WeatherAlert>\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid XML payload",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Invalid XML payload"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an existing weather alert (XML payload)",
+        "description": "Expects `?id=` query parameter identifying the index in the alerts slice.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Index of the alert to update (0-based)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherAlert"
+              },
+              "example": "<WeatherAlert>\n  <Event>Updated Advisory</Event>\n  <Effective>2025-09-12T12:00:00Z</Effective>\n  <Expires>2025-09-12T18:00:00Z</Expires>\n  <Area>CountyName</Area>\n  <Summary>Updated summary.</Summary>\n</WeatherAlert>\n"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated alert returned",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherAlert"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid id or invalid XML payload",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Invalid id parameter"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an alert (by index)",
+        "description": "Removes the alert at the given index from the internal slice.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Index of the alert to delete (0-based)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted successfully (no content)"
+          },
+          "400": {
+            "description": "Invalid id parameter",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Invalid id parameter"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WeatherAlert": {
+        "type": "object",
+        "xml": {
+          "name": "WeatherAlert"
+        },
+        "properties": {
+          "Event": {
+            "type": "string",
+            "description": "Title or type of event (e.g., Tornado Warning)",
+            "xml": {
+              "name": "Event"
+            }
+          },
+          "Effective": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the alert becomes effective (ISO 8601)",
+            "xml": {
+              "name": "Effective"
+            }
+          },
+          "Expires": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the alert expires (ISO 8601)",
+            "xml": {
+              "name": "Expires"
+            }
+          },
+          "Area": {
+            "type": "string",
+            "description": "Human-readable area description",
+            "xml": {
+              "name": "AreaDesc"
+            }
+          },
+          "Summary": {
+            "type": "string",
+            "description": "Short summary of the alert",
+            "xml": {
+              "name": "Summary"
+            }
+          }
+        },
+        "required": ["Event", "Effective", "Expires", "Area", "Summary"]
+      },
+      "WeatherAlerts": {
+        "type": "object",
+        "xml": {
+          "name": "WeatherAlerts"
+        },
+        "properties": {
+          "Alerts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WeatherAlert"
+            },
+            "xml": {
+              "name": "WeatherAlert",
+              "wrapped": true
+            }
+          }
+        },
+        "description": "Wrapper object used when returning multiple WeatherAlert elements in XML."
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad request",
+        "content": {
+          "text/plain": {
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bad request"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "weather",
+      "description": "Weather alerts operations"
+    }
+  ]
+}

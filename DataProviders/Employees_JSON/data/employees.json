@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "first_name": "Alice",
+      "last_name": "Johnson",
+      "role": "Software Engineer",
+      "department": "Engineering",
+      "salary": 85000
+    },
+    {
+      "id": 2,
+      "first_name": "Bob",
+      "last_name": "Martinez",
+      "role": "Project Manager",
+      "department": "Operations",
+      "salary": 95000
+    },
+    {
+      "id": 3,
+      "first_name": "Clara",
+      "last_name": "Nguyen",
+      "role": "HR Specialist",
+      "department": "Human Resources",
+      "salary": 60000
+    }
+  ]
+  

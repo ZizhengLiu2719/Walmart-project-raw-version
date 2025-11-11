@@ -1,0 +1,58 @@
+services:
+  # Development: live-reload, mounts source into container
+  app:
+    image: datafusion-app-dev:local
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+      target: builder # use builder stage for dev image (has dev deps)
+    volumes:
+      - ..:/usr/src/app
+      - /usr/src/app/node_modules # keep container's node_modules (avoid overwriting)
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      NWS_BASE: "http://host.docker.internal:8081"
+    # extra_hosts: host.docker.internal -> host-gateway (Docker >= 20.10)
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: >
+      /bin/sh -lc "npm ci && npm run dev"
+    # optional: healthcheck to ensure server responds
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -fS --retry 2 --retry-delay 2 http://localhost:4000/health || exit 1",
+        ]
+      interval: 60s # how often to run the check
+      timeout: 5s # max time allowed per check
+      retries: 2 # mark unhealthy after 2 failures
+      start_period: 10s # grace period after container start
+
+
+  # Production: multi-stage built artifact, small runtime container
+  # app_prod:
+  #   build:
+  #     context: ..
+  #     dockerfile: infra/Dockerfile
+  #     target: runner
+  #   image: datafusion-app:latest
+  #   ports:
+  #     - "4001:4000"
+  #   environment:
+  #     NODE_ENV: production
+  #     PORT: 4000
+  #   command: ["node", "dist/Index.js"]
+  #   restart: unless-stopped
+  #   healthcheck:
+  #     test:
+  #       [
+  #         "CMD-SHELL",
+  #         'node -e "require(''http'').get({host:''localhost'',port:4000,path:''/health''||''/''},()=>console.log(''ok''))" || exit 1',
+  #       ]
+  #     interval: 30s
+  #     timeout: 5s
+  #     retries: 3

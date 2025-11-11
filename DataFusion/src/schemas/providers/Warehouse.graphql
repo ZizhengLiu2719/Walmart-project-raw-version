@@ -1,0 +1,23 @@
+# WarehouseItem representing each inventory item
+type WarehouseQuery {
+  warehouseById(id: String!): WarehouseInfo
+}
+
+type WarehouseItem {
+  id: ID!
+  name: String!
+  category: String!
+  quantity: Int!
+  unit_price: Float!
+  supplier: String!
+  restock_date: String!
+}
+
+# WarehouseInfo representing each warehouse
+type WarehouseInfo {
+  id: ID!
+  name: String!
+  location: String!
+  last_updated: String!
+  inventory: [WarehouseItem!]!
+}

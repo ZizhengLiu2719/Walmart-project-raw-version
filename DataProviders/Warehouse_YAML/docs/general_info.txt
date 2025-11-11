@@ -1,0 +1,16 @@
+------------------------------------------------------------------------------
+Name="Warehouse Service"
+Port=8004
+Endpoints=[GET]    "http://localhost:8004/warehouses"
+          [GET]    "http://localhost:8004/warehouses/{warehouse_id}"
+          [POST]   "http://localhost:8004/warehouses"
+          [PUT]    "http://localhost:8004/warehouses/{warehouse_id}"
+          [DELETE] "http://localhost:8004/warehouses/{warehouse_id}"
+
+          [GET]    "http://localhost:8004/warehouses/{warehouse_id}/inventory"
+          [GET]    "http://localhost:8004/warehouses/{warehouse_id}/inventory/{inventory_id}"
+          [POST]   "http://localhost:8004/warehouses/{warehouse_id}/inventory"
+          [PUT]    "http://localhost:8004/warehouses/{warehouse_id}/inventory/{inventory_id}"
+          [DELETE] "http://localhost:8004/warehouses/{warehouse_id}/inventory/{inventory_id}"
+Description="Provides Warehouse data in YAML format."
+------------------------------------------------------------------------------

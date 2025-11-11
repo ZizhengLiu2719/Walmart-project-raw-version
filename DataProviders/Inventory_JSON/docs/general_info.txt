@@ -1,0 +1,10 @@
+------------------------------------------------------------------------------
+Name="Inventory Service"
+Port=8002
+Endpoint=[GET]    "http://localhost:8002/inventory"
+         [GET]    "http://localhost:8002/inventory/{item_id}"
+         [POST]   "http://localhost:8002/inventory"
+         [PUT]    "http://localhost:8002/inventory/{item_id}"
+         [DELETE] "http://localhost:8002/inventory/{item_id}"
+Description="Provides Inventory data in JSON format"
+------------------------------------------------------------------------------

@@ -1,0 +1,17 @@
+# Transport CSV Provider
+type TransportQuery {
+  list: [TransportRecord!]!
+  byId(id: ID!): TransportRecord
+  byStatus(status: String!): [TransportRecord!]!
+}
+
+type TransportRecord {
+  id: ID!
+  vehicleType: String!
+  origin: String!
+  destination: String!
+  departureTime: String!
+  arrivalTime: String!
+  status: String!
+  area: String!
+}

@@ -1,0 +1,16 @@
+------------------------------------------------------------------------------
+Name="Distribution Service"
+Port=8003
+Endpoint=[GET]    "http://localhost:8003/orders"
+         [GET]    "http://localhost:8003/orders/{order_id}"
+         [POST]   "http://localhost:8003/orders"
+         [PUT]    "http://localhost:8003/orders/{order_id}"
+         [DELETE] "http://localhost:8003/orders/{order_id}"
+
+         [GET]    "http://localhost:8003/orders/{order_id}/items"
+         [GET]    "http://localhost:8003/orders/{order_id}/items/{item_id}"
+         [PORT]   "http://localhost:8003/orders/{order_id}/items"
+         [PUT]    "http://localhost:8003/orders/{order_id}/items/{item_id}"
+         [DELETE] "http://localhost:8003/orders/{order_id}/items/{item_id}"
+Description="Provides Distribution data in YAML format"
+------------------------------------------------------------------------------

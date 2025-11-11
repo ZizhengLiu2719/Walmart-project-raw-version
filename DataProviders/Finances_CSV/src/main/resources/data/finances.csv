@@ -1,0 +1,7 @@
+id,transactionDate,description,amount,currency,category
+1,2024-07-01,"Fuel for transport fleet",-5000.00,USD,TRANSPORT
+2,2024-07-02,"Payment from Client X",15000.00,USD,REVENUE
+3,2024-07-03,"Office Supplies",-350.50,USD,EXPENSE
+4,2024-07-05,"Warehouse Lease Payment",-12000.00,USD,FIXED_COST
+5,2024-07-10,"Payroll",-35000.00,USD,SALARIES
+6,2024-07-12,"Payment from Client Y",25000.00,USD,REVENUE

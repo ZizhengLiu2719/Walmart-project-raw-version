@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "graphql.vscode-graphql",
+    "GraphQL.vscode-graphql-syntax",
+    "streetsidesoftware.code-spell-checker",
+    "aaron-bond.better-comments",
+    "eamodio.gitlens",
+    "vscode-icons-team.vscode-icons"
+  ]
+}

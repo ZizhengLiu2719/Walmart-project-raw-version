@@ -1,0 +1,44 @@
+{
+  "name": "datafusion",
+  "version": "1.0.0",
+  "description": "DataFusion API",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "Index.js",
+  "scripts": {
+    "dev": "nodemon --watch src --exec \"node --trace-warnings --loader ts-node/esm src/Index.ts\"",
+    "dev:quick": "node --loader ts-node/esm src/Index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/Index.js"
+  },
+  "dependencies": {
+    "@graphql-tools/graphql-file-loader": "^8.1.1",
+    "@graphql-tools/load-files": "^7.0.1",
+    "@graphql-tools/merge": "^9.1.1",
+    "csv-parse": "^6.1.0",
+    "dotenv": "^17.2.2",
+    "fast-xml-parser": "^5.2.5",
+    "fastify": "^5.6.0",
+    "graphql": "^16.11.0",
+    "js-yaml": "^4.1.0",
+    "mercurius": "^16.4.0",
+    "nodemon": "^3.1.10",
+    "piscina": "^5.1.3",
+    "readable-stream": "^4.7.0",
+    "undici": "^7.16.0"
+  },
+  "resolutions": {
+    "graphql": "^16.11.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.3.1",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
+  }
+}

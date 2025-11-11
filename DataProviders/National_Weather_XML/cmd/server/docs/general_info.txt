@@ -1,0 +1,11 @@
+------------------------------------------------------------------------------
+Name="National Weather Service"
+Port=8081
+Endpoint=[GET]    "http://localhost:8081/api-docs.yaml"
+         [GET]    "http://localhost:8081/weather-alert"
+         [GET]    "http://localhost:8081/weather-alert?{id}"
+         [POST]   "http://localhost:8081/weather-alert"
+         [PUT]    "http://localhost:8081/weather-alert?{id}"
+         [DELETE] "http://localhost:8081/weather-alert?{id}"
+Description="Provides faux Weather Alert data in XML format"
+------------------------------------------------------------------------------

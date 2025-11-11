@@ -1,0 +1,16 @@
+type InventoryItem {
+  id: ID!
+  name: String!
+  category: String
+  quantity: Int
+  price: Float
+}
+
+type InventoryQuery {
+  items: [InventoryItem!]!
+  itemById(id: ID!): InventoryItem
+}
+
+extend type Query {
+  Inventory: InventoryQuery
+}

@@ -1,0 +1,15 @@
+# Finances CSV Provider
+type FinancesQuery {
+  list: [FinanceRecord!]!
+  byId(id: ID!): FinanceRecord
+  byCategory(category: String!): [FinanceRecord!]!
+}
+
+type FinanceRecord {
+  id: ID!
+  transactionDate: String!
+  description: String!
+  amount: Float
+  currency: String!
+  category: String!
+}

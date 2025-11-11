@@ -1,0 +1,24 @@
+[
+    {
+      "id": 101,
+      "name": "Laptop",
+      "category": "Electronics",
+      "quantity": 15,
+      "price": 999.99
+    },
+    {
+      "id": 102,
+      "name": "Office Chair",
+      "category": "Furniture",
+      "quantity": 30,
+      "price": 129.99
+    },
+    {
+      "id": 103,
+      "name": "Notebook",
+      "category": "Stationery",
+      "quantity": 200,
+      "price": 2.99
+    }
+  ]
+  

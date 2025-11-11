@@ -1,0 +1,17 @@
+type Employee {
+  id: ID!
+  first_name: String!
+  last_name: String!
+  role: String
+  department: String
+  salary: Float
+}
+
+type EmployeesQuery {
+  employees: [Employee!]!
+  employeeById(id: ID!): Employee
+}
+
+extend type Query {
+  Employees: EmployeesQuery
+}

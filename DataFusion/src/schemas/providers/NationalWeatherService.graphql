@@ -1,0 +1,17 @@
+# Either define the nested object type
+type NationalWeatherServiceQuery {
+  alertList: WeatherAlerts
+  alertById(id: Int!): WeatherAlert
+}
+
+type WeatherAlert {
+  Event: String
+  Effective: String
+  Expires: String
+  Area: String
+  Summary: String
+}
+
+type WeatherAlerts {
+  WeatherAlert: [WeatherAlert]
+}

@@ -1,0 +1,10 @@
+------------------------------------------------------------------------------
+Name="Transport Service"
+Port=8084
+Endpoints=[GET]    "http://localhost:8084/transport"
+          [GET]    "http://localhost:8084/transport/{id}"
+          [POST]   "http:///localhost:8084/transport"
+          [PUT]    "http://localhost:8084/transport/{id}"
+          [DELETE] "http://localhost:8084/transport/{id}"
+Description="Provides Transport data in CSV format"
+------------------------------------------------------------------------------

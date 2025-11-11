@@ -1,0 +1,14 @@
+# src/schemas/schema.graphql
+type Query {
+  NationalWeatherService: NationalWeatherServiceQuery!
+  Finances: FinancesQuery!
+  Transport: TransportQuery!
+  Warehouse: WarehouseQuery!
+  Employees: EmployeesQuery!
+  Inventory: InventoryQuery!
+}
+
+# WarehouseQuery for fetching warehouses
+type WarehouseQuery {
+  warehouses: [WarehouseInfo!]!
+}

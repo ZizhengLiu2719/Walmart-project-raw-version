@@ -1,0 +1,42 @@
+orders:
+  - order_id: 10001
+    origin: WH001
+    destination: WH002
+    status: pending
+    departure_date: 2025-08-26
+    estimated_arrival: 2025-08-28
+    items:
+      - item_id: 1001
+        name: Ethernet cable
+        category: Electronics
+        quantity: 500
+        unit_price: 12.99
+        supplier: Acme Corp
+
+      - item_id: 1005
+        name: Industrial Shelving
+        category: Hardware
+        quantity: 128
+        unit_price: 89.99
+        supplier: Storage Systems Co
+
+      - item_id: 1006
+        name: Safety Equipment Kit
+        category: Safety
+        quantity: 400
+        unit_price: 45.50
+        supplier: SafetyFirst Corp
+
+  - order_id: 10002
+    origin: Germany
+    destination: WH001
+    status: in-transit
+    departure_date: 2025-08-27
+    estimated_arrival: 2025-09-03
+    items:
+      - item_id: 1004
+        name: Smart Sensor
+        category: Electronics
+        quantity: 200
+        unit_price: 24.99
+        supplier: Tech Solutions Inc
